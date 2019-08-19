@@ -17,11 +17,8 @@ function site_to_pdf() {
 		else
 			FILE="$DOMAIN.pdf"
 		fi
-#		echo "$FILE"
-#		echo "$SPATH"
 		echo $SITE ">" $FILE
 		$(wkhtmltopdf -q $SITE $FILE 2>/dev/null)
-		#echo "$SITE"
 	done
 }
 
@@ -34,4 +31,3 @@ else
 	$(echo "example.com" > site-list.txt)
 	site_to_pdf
 fi
-
