@@ -1,8 +1,7 @@
 # Site List to PDF
-A bash script that uses wkhtmltopdf to generate PDFs for a list of websites specified in a site-list.txt file.
+A bash script that uses wkhtmltopdf to generate PDFs for a list of websites specified in a site-list.txt file. Its primary purpose is to quickly create a batch dummy PDFs for testing.
 
-**Note:** This tool is very bare bones, and has a lot of room for improvement. I most likely won't update it soon, because it works for my own purposes.
-
+**Note:** This tool is very bare bones, and has a lot of room for improvement. I most likely won't update it, so feel free to steal it and improve it.
 
 ## Install wkhtmltopdf
 **Mac / OS X:** To install on a mac, simply do: ```brew cask install wkhtmltopdf```
