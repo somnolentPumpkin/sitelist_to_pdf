@@ -1,11 +1,15 @@
 #!/bin/bash
 
 SITELIST=site-list.txt
+HTTPS="https://"
+HTTP="http://"
 
 function site_to_pdf() {
 	for SITE in $(cat ./site-list.txt)
 	do
 		DOMAIN=$(echo $SITE | cut -d '.' -f1)
+		DOMAIN=${DOMAIN//$HTTPS}
+		DOMAIN=${DOMAIN//$HTTP}
 		WPATH=$(echo $SITE | cut -d '/' -f2)
 		FILE="$DOMAIN.pdf"
 		if [[ $WPATH != $SITE ]];
@@ -17,8 +21,11 @@ function site_to_pdf() {
 		else
 			FILE="$DOMAIN.pdf"
 		fi
+#		echo "$FILE"
+#		echo "$SPATH"
 		echo $SITE ">" $FILE
 		$(wkhtmltopdf -q $SITE $FILE 2>/dev/null)
+		#echo "$SITE"
 	done
 }
 
