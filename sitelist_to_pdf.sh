@@ -21,11 +21,8 @@ function site_to_pdf() {
 		else
 			FILE="$DOMAIN.pdf"
 		fi
-#		echo "$FILE"
-#		echo "$SPATH"
 		echo $SITE ">" $FILE
 		$(wkhtmltopdf -q $SITE $FILE 2>/dev/null)
-		#echo "$SITE"
 	done
 }
 
@@ -33,7 +30,7 @@ function site_to_pdf() {
 if test -f "$SITELIST"; then
 		site_to_pdf
 else
-	echo "Site-list not found. Creating sample file."
+	echo "$SITELIST not found. Creating sample file."
 	$(touch site-list.txt)
 	$(echo "example.com" > site-list.txt)
 	site_to_pdf
